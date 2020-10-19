@@ -17,4 +17,8 @@ public interface VideoService {
 
     int updateVideo(Video video);
 
+    int deleteVideo(Integer id);
+
+    int delBatchVideos(Integer[] ids);
+
 }

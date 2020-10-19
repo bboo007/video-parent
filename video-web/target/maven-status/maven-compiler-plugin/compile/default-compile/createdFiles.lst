@@ -1,0 +1,5 @@
+com\qf\controller\TestController.class
+com\qf\controller\VideoController.class
+com\qf\interceptor\AdminInterceptor.class
+com\qf\controller\SpeakerController.class
+com\qf\controller\AdminController.class

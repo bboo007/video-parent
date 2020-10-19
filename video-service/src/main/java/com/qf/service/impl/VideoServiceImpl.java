@@ -8,6 +8,8 @@ import com.qf.utils.VideoQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -40,5 +42,18 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public int updateVideo(Video video) {
         return videoMapper.updateByPrimaryKeyWithBLOBs(video);
+    }
+
+    @Override
+    public int deleteVideo(Integer id) {
+        return videoMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public int delBatchVideos(Integer[] ids) {
+        VideoExample videoExample = new VideoExample();
+        VideoExample.Criteria criteria = videoExample.createCriteria();
+        criteria.andIdIn(Arrays.asList(ids));
+        return videoMapper.deleteByExample(videoExample);
     }
 }
