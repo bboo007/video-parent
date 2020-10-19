@@ -245,6 +245,7 @@
                 <textarea class="form-control" name="detail" rows="3">${video.detail}</textarea>
             </div>
         </div>
+        <input type="hidden" name="playNum" value="${video.playNum}">
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

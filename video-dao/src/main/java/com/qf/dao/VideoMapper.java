@@ -3,6 +3,9 @@ package com.qf.dao;
 import com.qf.pojo.Video;
 import com.qf.pojo.VideoExample;
 import java.util.List;
+import java.util.Map;
+
+import com.qf.utils.VideoQueryVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -35,4 +38,6 @@ public interface VideoMapper {
     int updateByPrimaryKeyWithBLOBs(Video record);
 
     int updateByPrimaryKey(Video record);
+
+    List<Map> findByPage(VideoQueryVo videoQueryVo);
 }

@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="video-dao" />
+        <module name="video-utils" />
         <module name="video-service" />
         <module name="video-web" />
       </profile>

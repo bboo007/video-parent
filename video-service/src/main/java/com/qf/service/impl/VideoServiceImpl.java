@@ -1,0 +1,44 @@
+package com.qf.service.impl;
+
+import com.qf.dao.VideoMapper;
+import com.qf.pojo.Video;
+import com.qf.pojo.VideoExample;
+import com.qf.service.VideoService;
+import com.qf.utils.VideoQueryVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class VideoServiceImpl implements VideoService {
+
+    @Autowired
+    private VideoMapper videoMapper;
+
+    @Override
+    public List<Video> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<Map> findByPage(VideoQueryVo videoQueryVo) {
+        return videoMapper.findByPage(videoQueryVo);
+    }
+
+    @Override
+    public Video findByID(Integer id) {
+        return videoMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int addVideo(Video video) {
+        return videoMapper.insert(video);
+    }
+
+    @Override
+    public int updateVideo(Video video) {
+        return videoMapper.updateByPrimaryKeyWithBLOBs(video);
+    }
+}

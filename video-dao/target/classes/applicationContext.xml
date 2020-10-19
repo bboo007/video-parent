@@ -36,6 +36,9 @@
     </bean>
 
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.qf.dao"></property>
+        <property name="basePackage" value="com.qf.dao"/>
     </bean>
+
+    <bean class="org.apache.ibatis.logging.LogFactory"/>
+
 </beans>
