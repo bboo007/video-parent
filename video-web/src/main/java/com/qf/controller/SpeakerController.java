@@ -2,12 +2,8 @@ package com.qf.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.qf.dao.SpeakerMapper;
-import com.qf.pojo.Course;
 import com.qf.pojo.Speaker;
-import com.qf.pojo.Video;
 import com.qf.service.SpeakerService;
-import com.qf.utils.VideoQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("speaker")
