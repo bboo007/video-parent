@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e2e4c1ea-36f3-4e6d-812f-484d06a5cd6e" name="Default Changelist" comment="" />
+    <list default="true" id="e2e4c1ea-36f3-4e6d-812f-484d06a5cd6e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/video-dao/target/classes/com/qf/dao/AdminMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-dao/target/classes/com/qf/dao/CourseMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-dao/target/classes/com/qf/dao/SpeakerMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-dao/target/classes/com/qf/dao/SubjectMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-dao/target/classes/com/qf/dao/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video-dao/target/classes/com/qf/dao/VideoMapper.xml" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/video-dao/target/" />
@@ -30,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="374">
+              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -82,6 +89,12 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="MavenRunner">
     <option name="jreName" value="#JAVA_HOME" />
   </component>
@@ -104,24 +117,6 @@
               <item name="video-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="video-parent" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="video-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="video-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="video-web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="video-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="video-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="video-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="video-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="video-parent" type="462c0819:PsiDirectoryNode" />
-              <item name="video-web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -140,7 +135,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.16210938" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -230,10 +225,25 @@
       <updated>1603075154676</updated>
       <workItem from="1603075155904" duration="1867000" />
     </task>
+    <task id="LOCAL-00001" summary="webapp">
+      <created>1603083402560</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603083402560</updated>
+    </task>
+    <task id="LOCAL-00002" summary="webapp">
+      <created>1603083418612</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603083418612</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1982000" />
+    <option name="totallyTimeSpent" value="2268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -248,7 +258,7 @@
       <window_info id="Image Layers" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -263,10 +273,10 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.24840085" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -275,7 +285,8 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="webapp" />
+    <option name="LAST_COMMIT_MESSAGE" value="webapp" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/video-service/pom.xml">
@@ -307,10 +318,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://MAVEN/com.qf:video-parent:1.0-SNAPSHOT">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MAVEN</ID>
+          <OriginalElement>com.qf:video-parent:1.0-SNAPSHOT</OriginalElement>
+          <nodes>
+            <node x="" y="">com.qf:video-parent:1.0-SNAPSHOT</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="49.5" y="10.5" />
+          <SelectedNodes />
+          <Categories />
+          <VISIBILITY>All</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="374">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
         </state>
       </provider>
     </entry>
