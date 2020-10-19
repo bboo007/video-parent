@@ -1,7 +1,5 @@
 <html>
 <body>
-<%
-    request.getRequestDispatcher("/subject/selectAll").forward(request,response);
-%>
+<jsp:forward page="/subject/selectAll"></jsp:forward>
 </body>
 </html>

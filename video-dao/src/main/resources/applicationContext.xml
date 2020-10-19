@@ -18,32 +18,24 @@
 
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
-        <property name="configLocation" value="classpath:mybatis-config.xml.bak"></property>
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
 
-<!--        <property name="plugins">-->
-<!--            <set>-->
-<!--                <bean class="com.github.pagehelper.PageInterceptor">-->
-<!--                    <property name="properties">-->
-<!--                        <props>-->
-<!--                            &lt;!&ndash; 数据库方言，可选择：oracle,mysql,mariadb 等&ndash;&gt;-->
-<!--                            <prop key="helperDialect">mysql</prop>-->
-<!--                            &lt;!&ndash;reasonable：分页合理化参数，默认值：false。-->
-<!--                            当该参数设置为true时，pageNum<=0时会查询第一页，-->
-<!--                            pageNum>pages（超过总数时），会查询最后一页&ndash;&gt;-->
-<!--                            <prop key="reasonable">true</prop>-->
-<!--                            &lt;!&ndash;supportMethodsArguments：-->
-<!--                            是否支持通过 Mapper 接口参数来传递分页参数，默认值：false&ndash;&gt;-->
-<!--                            <prop key="supportMethodsArguments">true</prop>-->
-<!--                        </props>-->
-<!--                    </property>-->
-<!--                </bean>-->
-<!--            </set>-->
-<!--        </property>-->
-
+        <property name="plugins">
+            <set>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <props>
+                            <prop key="helperDialect">mysql</prop>
+                            <prop key="reasonable">true</prop>
+                            <prop key="supportMethodsArguments">true</prop>
+                        </props>
+                    </property>
+                </bean>
+            </set>
+        </property>
     </bean>
 
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.qf.dao"></property>
     </bean>
-
 </beans>

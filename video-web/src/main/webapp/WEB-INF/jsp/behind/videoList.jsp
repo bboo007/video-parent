@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="p" uri="http://yanzhenwei.com/common/" %>
 <!-- 分页插件 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -327,7 +326,6 @@
 </div>
 <div class="container">
     <div class="navbar-right" style="padding-right: 17px">
-        <p:page url="${pageContext.request.contextPath}/video/list"></p:page>
     </div>
 </div>
 
