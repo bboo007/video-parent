@@ -2,3 +2,4 @@
 /src
 /*/target
 *.iml
+/*/src/test
