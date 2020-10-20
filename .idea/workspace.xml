@@ -76,7 +76,17 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -141,6 +151,7 @@
         <option value="$PROJECT_DIR$/video-web/src/main/java/com/qf/interceptor/AdminInterceptor.java" />
         <option value="$PROJECT_DIR$/video-web/src/main/java/com/qf/controller/AdminController.java" />
         <option value="$PROJECT_DIR$/video-web/src/main/java/com/qf/controller/SpeakerController.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -229,7 +240,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.16210938" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -399,6 +410,10 @@
       <workItem from="1603153490680" duration="1086000" />
       <workItem from="1603165388817" duration="17000" />
       <workItem from="1603165529750" duration="24000" />
+      <workItem from="1603169266899" duration="462000" />
+      <workItem from="1603169748771" duration="45000" />
+      <workItem from="1603169809532" duration="42000" />
+      <workItem from="1603169867474" duration="334000" />
     </task>
     <task id="LOCAL-00001" summary="webapp">
       <created>1603083402560</created>
@@ -498,16 +513,24 @@
       <option name="project" value="LOCAL" />
       <updated>1603117404111</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="test">
+      <created>1603169463271</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1603169463271</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28954000" />
+    <option name="totallyTimeSpent" value="29837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.21695095" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.22547974" />
       <window_info id="Structure" order="1" sideWeight="0.5010846" side_tool="true" weight="0.21055438" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -585,10 +608,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="webapp" />
     <MESSAGE value="add AdminController, VideoController, SpeakerController&#10;add AdminService, VideoService, SpeakerService, SourceService&#10;add VideoQueryVo" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/video-service/src/main/java/com/qf/sevice/TestSerivce.java" />
     <entry file="file://$PROJECT_DIR$/video-service/src/main/java/com/qf/service/impl/TestServiceImp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -980,6 +1003,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
         </state>
       </provider>
     </entry>
