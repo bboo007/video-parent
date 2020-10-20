@@ -57,3 +57,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+src/
+video-dao/src/test/
+video-service/src/test/
+video-utils/src/test/
