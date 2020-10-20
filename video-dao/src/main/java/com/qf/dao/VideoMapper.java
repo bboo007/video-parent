@@ -1,5 +1,6 @@
 package com.qf.dao;
 
+import com.qf.pojo.Course;
 import com.qf.pojo.Video;
 import com.qf.pojo.VideoExample;
 import java.util.List;
@@ -35,4 +36,8 @@ public interface VideoMapper {
     int updateByPrimaryKeyWithBLOBs(Video record);
 
     int updateByPrimaryKey(Video record);
+
+    Video findById(Integer videoId);
+
+    List<Course> findAll(Integer subjectId);
 }
