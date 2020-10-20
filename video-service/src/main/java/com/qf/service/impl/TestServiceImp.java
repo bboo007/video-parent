@@ -14,6 +14,7 @@ public class TestServiceImp implements TestService {
     @Autowired
     private VideoMapper videoMapper;
 
+    @Override
     public List<Video> findALl() {
         return videoMapper.selectByExample(null);
     }

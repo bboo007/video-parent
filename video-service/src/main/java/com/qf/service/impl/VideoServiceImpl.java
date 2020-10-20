@@ -1,6 +1,19 @@
 package com.qf.service.impl;
 
 import com.qf.dao.VideoMapper;
+import com.qf.pojo.Course;
+import com.qf.pojo.Video;
+import com.qf.service.VideoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * @author DELL
+ * @date 2020-10-19 19:59
+ * @Description
+ */
 import com.qf.pojo.Video;
 import com.qf.pojo.VideoExample;
 import com.qf.service.VideoService;
@@ -20,8 +33,19 @@ public class VideoServiceImpl implements VideoService {
     private VideoMapper videoMapper;
 
     @Override
-    public List<Video> findAll() {
-        return null;
+    public Video findById(Integer videoId) {
+        return videoMapper.findById(videoId);
+    }
+
+    @Override
+    public List<Course> findAll(Integer subjectId) {
+        return videoMapper.findAll(subjectId);
+    }
+
+    @Override
+    public void updateVideo(Video video) {
+        videoMapper.updateByPrimaryKey(video);
+
     }
 
     @Override
@@ -40,8 +64,8 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public int updateVideo(Video video) {
-        return videoMapper.updateByPrimaryKeyWithBLOBs(video);
+    public void updateVideoWithBlobs(Video video) {
+        videoMapper.updateByPrimaryKeyWithBLOBs(video);
     }
 
     @Override

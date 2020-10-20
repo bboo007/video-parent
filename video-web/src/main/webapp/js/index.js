@@ -18,11 +18,11 @@ $('nav').mouseleave(function () {
 // 导航栏下拉菜单
 $('nav .nav_down').mouseenter(function () {
     $('#nav_down').stop().slideDown();
-    $(this).children('img').attr('src', '/' + getRootPath() + '/img/nav_down2.png');
+    $(this).children('img').attr('/img/nav_down2.png');
 });
 $('nav .nav_down').mouseleave(function () {
     $('#nav_down').stop().slideUp();
-    $(this).children('img').attr('src', '/' + getRootPath() + '/img/nav_down.png');
+    $(this).children('img').attr('/img/nav_down.png');
 });
 
 $(window).scroll(function () {

@@ -10,10 +10,42 @@
     <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
     <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
     <result column="play_num" property="playNum" jdbcType="INTEGER" />
+    <result column="detail" property="detail"></result>
+    <association property="speaker" javaType="com.qf.pojo.Speaker">
+      <id column="speakerId" property="id"></id>
+      <result column="speaker_name" property="speakerName"></result>
+      <result column="speaker_desc" property="speakerDesc"></result>
+      <result column="speaker_job" property="speakerJob"></result>
+      <result column="head_img_url" property="headImgUrl"></result>
+    </association>
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.qf.pojo.Video" extends="BaseResultMap" >
     <result column="detail" property="detail" jdbcType="LONGVARCHAR" />
   </resultMap>
+
+
+  <select id="findById" resultMap="BaseResultMap">
+    select
+    v.id,
+    v.title,
+    v.detail,
+    v.time,
+    v.speaker_id,
+    v.course_id,
+    v.video_url,
+    v.image_url,
+    v.play_num,
+    s.id speakerId,
+    s.speaker_name,
+    s.speaker_desc,
+    s.speaker_job,
+    s.head_img_url
+    from video v, speaker s
+    where v.speaker_id = s.id
+    and v.id = #{id}
+  </select>
+
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
