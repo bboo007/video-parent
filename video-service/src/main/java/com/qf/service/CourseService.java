@@ -14,5 +14,8 @@ public interface CourseService {
 
     Course findById(Integer courseId);
 
+    List<Course> findALl();
+
     List<Course> findAll(Integer subjectId);
 }
+

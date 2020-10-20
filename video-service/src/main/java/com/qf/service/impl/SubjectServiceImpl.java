@@ -20,15 +20,18 @@ public class SubjectServiceImpl implements SubjectService {
     @Autowired
     private SubjectMapper subjectMapper;
 
+    @Override
     public List<Subject> findAllSubject() {
 
         return subjectMapper.selectByExample(null);
     }
 
+    @Override
     public Subject findCourseBySubjectId(Integer id) {
         return subjectMapper.findCourseBySubjectId(id);
     }
 
+    @Override
     public List<Subject> findBySubjectByName(String subjectName) {
         SubjectExample subjectExample = new SubjectExample();
         SubjectExample.Criteria criteria = subjectExample.createCriteria();

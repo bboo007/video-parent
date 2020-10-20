@@ -110,6 +110,35 @@
   <sql id="Blob_Column_List" >
     detail
   </sql>
+
+  <resultMap id="PageMap" type="java.util.Map" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+    <result column="speaker_id" property="speakerId" jdbcType="INTEGER" />
+    <result column="course_id" property="courseId" jdbcType="INTEGER" />
+    <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="play_num" property="playNum" jdbcType="INTEGER" />
+    <result column="speaker_name" property="speakerName" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="findByPage" resultMap="PageMap">
+    select video.video.id, title, detail, time, speaker_id, course_id, video_url, image_url, play_num,
+           speaker_name
+    from video.video join video.speaker on video.speaker_id = speaker.id
+          <trim>
+            <if test="title != null and title != ''">
+              where video.title like concat('%', #{title}, '%')
+            </if>
+            <if test="speakerId != null and speakerId != ''">
+              and video.speaker_id like concat('%', #{speakerId}, '%')
+            </if>
+            <if test="courseId != null and courseId != ''">
+              and video.course_id like concat('%', #{courseId}, '%')
+            </if>
+          </trim>
+  </select>
+
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.qf.pojo.VideoExample" >
     select
     <if test="distinct" >
@@ -141,7 +170,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
@@ -159,12 +188,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.qf.pojo.Video" >
-    insert into video (id, title, time, 
-      speaker_id, course_id, video_url, 
+    insert into video (id, title, time,
+      speaker_id, course_id, video_url,
       image_url, play_num, detail
       )
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{time,jdbcType=INTEGER}, 
-      #{speakerId,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{videoUrl,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{time,jdbcType=INTEGER},
+      #{speakerId,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER}, #{videoUrl,jdbcType=VARCHAR},
       #{imageUrl,jdbcType=VARCHAR}, #{playNum,jdbcType=INTEGER}, #{detail,jdbcType=LONGVARCHAR}
       )
   </insert>

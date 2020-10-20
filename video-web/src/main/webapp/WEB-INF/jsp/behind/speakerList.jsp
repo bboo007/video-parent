@@ -25,7 +25,7 @@
     <script src="${pageContext.request.contextPath}/js/confirm.js"></script>
     <script type="text/javascript">
         function showAddPage() {
-            location.href = "${pageContext.request.contextPath}/speaker/addSpeaker";
+            location.href = "${pageContext.request.contextPath}/speaker/addOrEdit";
         }
 
         function delSpeakerById(Obj, id, name) {
@@ -35,7 +35,7 @@
                     'primary': true,
                     'callback': function () {
                         var param = {"id": id};
-                        $.post("speakerDel", param, function (data) {
+                        $.post("/speaker/speakerDel", param, function (data) {
                             if (data == 'success') {
                                 Confirm.show('温馨提示：', '删除成功');
                                 $(Obj).parent().parent().remove();
@@ -68,7 +68,7 @@
              id="bs-example-navbar-collapse-9">
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/video/list">视频管理</a></li>
-                <li class="active"><a href="${pageContext.request.contextPath}/speaker/showSpeakerList">主讲人管理</a></li>
+                <li class="active"><a href="${pageContext.request.contextPath}/speaker/list">主讲人管理</a></li>
                 <li><a href="${pageContext.request.contextPath}/showCourseList">课程管理</a></li>
 
 
@@ -119,14 +119,14 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${page.rows}" var="speaker" varStatus="status">
+        <c:forEach items="${pageInfo.list}" var="speaker" varStatus="status">
             <tr>
                 <td>${status.index+1}</td>
                 <td>${speaker.speakerName}</td>
 
                 <td>${speaker.speakerJob}</td>
                 <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${speaker.speakerDesc}</td>
-                <td><a href="${pageContext.request.contextPath}/speaker/edit?id=${speaker.id}"><span
+                <td><a href="${pageContext.request.contextPath}/speaker/addOrEdit?id=${speaker.id}"><span
                         class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
                 <td><a href="#" onclick="return delSpeakerById(this,'${speaker.id}','${speaker.speakerName}')"><span
                         class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
@@ -140,9 +140,18 @@
 </div>
 <div class="container">
     <div class="navbar-right" style="padding-right: 17px">
-        <p:page url="${pageContext.request.contextPath}/speaker/showSpeakerList"></p:page>
+        <button class="btn" type="button" onclick="findByPage(1)">首页</button>
+        <button class="btn" type="button" onclick="findByPage(${pageInfo.prePage})">上一页</button>
+        <span>当前页面：${pageInfo.pageNum}/${pageInfo.pages}</span>
+        <button class="btn" type="button" onclick="findByPage(${pageInfo.nextPage})">下一页</button>
+        <button class="btn" type="button" onclick="findByPage(${pageInfo.pages})">尾页</button>
     </div>
 </div>
+<script>
+    function findByPage(pageNum) {
+        location.href = "/speaker/list?pageNum=" + pageNum;
+    }
+</script>
 </body>
 
 </html>

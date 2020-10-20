@@ -47,7 +47,7 @@
     </style>
     <script type="text/javascript">
         function showAddPage() {
-            location.href = "${pageContext.request.contextPath}/video/addVideo";
+            location.href = "${pageContext.request.contextPath}/video/addOrEdit";
         }
 
         $(function () {
@@ -171,21 +171,17 @@
              id="bs-example-navbar-collapse-9">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="${pageContext.request.contextPath}/video/list">视频管理</a></li>
-                <li><a href="${pageContext.request.contextPath}/speaker/showSpeakerList">主讲人管理</a></li>
-                <li><a href="${pageContext.request.contextPath}/showCourseList">课程管理</a></li>
-
-
+                <li><a href="${pageContext.request.contextPath}/speaker/list">主讲人管理</a></li>
+                <li><a href="${pageContext.request.contextPath}/course/list">课程管理</a></li>
             </ul>
             <p class="navbar-text navbar-right">
-                <span>${sessionScope.userName}</span> <i class="glyphicon glyphicon-log-in"
-                                                         aria-hidden="true"></i>&nbsp;&nbsp;<a
+                <span>${sessionScope.userName}</span>
+                <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>&nbsp;&nbsp;<a
                     href="${pageContext.request.contextPath}/admin/exit"
                     class="navbar-link">退出</a>
             </p>
         </div>
         <!-- /.navbar-collapse -->
-
-
     </div>
     <!-- /.container-fluid -->
 </nav>
@@ -213,63 +209,54 @@
         <div class="col-md-4"></div>
         <div class="col-md-6">
             <!-- 查询相关组件 -->
-            <form class="navbar-form navbar-right" action="${pageContext.request.contextPath}/video/list" method="post">
-                <input type="text" name="title" class="form-control" placeholder="标题" value="${queryVo.title}">
+            <form id="form-find" class="navbar-form navbar-right" action="${pageContext.request.contextPath}/video/list" method="post">
+                <input type="text" name="title" class="form-control" placeholder="标题" value="${videoQueryVo.title}">
                 <div class="btn-group">
                     <button type="button" id="speakerName"
                             class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         <c:forEach items="${speakerList}" var="speaker">
-                            <c:if test="${speaker.id == queryVo.speakerId}">
-                                ${speaker.speakerName}
-                            </c:if>
+                            <c:if test="${speaker.id == videoQueryVo.speakerId}">${speaker.speakerName}</c:if>
                         </c:forEach>
-                        <c:if test="${empty queryVo.speakerId}">
-                            --请选择老师--
-                        </c:if>
+                        <c:if test="${empty videoQueryVo.speakerId}">--请选择老师--</c:if>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li value=''><a href="#" onclick="showName(this,'',1)">--请选择老师--</a>
-                        </li>
+                        <li value=''><a href="#" onclick="showName(this,'',1)">--请选择老师--</a></li>
                         <c:forEach items="${speakerList}" var="speaker">
-                            <li value='${speaker.id}'><a href="#"
-                                                         onclick="showName(this,'${speaker.id}',1)">${speaker.speakerName}</a>
+                            <li value='${speaker.id}'>
+                                <a href="#" onclick="showName(this,'${speaker.id}',1)">${speaker.speakerName}</a>
                             </li>
                         </c:forEach>
                     </ul>
-                    <input type="hidden" name="speakerId" id="speakerId" value="${queryVo.speakerId}"/>
+                    <input type="hidden" name="speakerId" id="speakerId" value="${videoQueryVo.speakerId}"/>
                 </div>
                 <div class="btn-group">
                     <button type="button" id="courseName"
                             class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         <c:forEach items="${courseList}" var="course">
-                            <c:if test="${course.id == queryVo.courseId}">
-                                ${course.courseTitle}
-                            </c:if>
+                            <c:if test="${course.id == videoQueryVo.courseId}">${course.courseTitle}</c:if>
                         </c:forEach>
-                        <c:if test="${empty queryVo.courseId}">
+                        <c:if test="${empty videoQueryVo.courseId}">
                             --请选择课程--
                         </c:if>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li value=""><a href="#" onclick="showName(this,'',2)">--请选择课程--</a>
-                        </li>
+                        <li value=""><a href="#" onclick="showName(this,'',2)">--请选择课程--</a></li>
                         <c:forEach items="${courseList}" var="course">
-                            <li value="${course.id}"><a href="#"
-                                                        onclick="showName(this,${course.id},2)">${course.courseTitle}</a>
+                            <li value="${course.id}">
+                                <a href="#" onclick="showName(this,${course.id},2)">${course.courseTitle}</a>
                             </li>
                         </c:forEach>
                     </ul>
-                    <input type="hidden" name="courseId" id="courseId" value="${queryVo.courseId}"/>
+                    <input type="hidden" name="courseId" id="courseId" value="${videoQueryVo.courseId}"/>
                 </div>
+                <input type="hidden" id="pageNum" name="pageNum" value="${pageInfo.pageNum}">
                 <button type="submit" class="btn btn-info dropdown-toggle">查询</button>
             </form>
-
         </div>
-
     </div>
 </div>
 
@@ -297,38 +284,42 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${page.rows}" var="video" varStatus="status">
+            <c:forEach items="${pageInfo.list}" var="video" varStatus="status">
                 <tr>
                     <td><input type="checkbox" name="ids" value="${video.id}"
                                onclick="selectOne(this)"/></td>
                     <td>${status.count}</td>
                     <td>${video.title}</td>
                     <td style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">${video.detail}</td>
-                    <td>${video.speaker.speakerName}</td>
+                    <td>${video.speakerName}</td>
                     <td>${video.time}</td>
                     <td>${video.playNum}</td>
-                    <td><a href="${pageContext.request.contextPath}/video/edit?id=${video.id}"><span
+                    <td><a href="${pageContext.request.contextPath}/video/addOrEdit?id=${video.id}"><span
                             class="glyphicon glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
                     <!-- js中如果使用el表达式，请用单引号包括，避免造成一些语法问题 -->
-                    <td><a
-                            onclick="return delVideoById(this,'${video.id}','${video.title}')"><span
-                            class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+                    <td><a onclick="return delVideoById(this,'${video.id}','${video.title}')">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a></td>
                 </tr>
-
             </c:forEach>
-
-
             </tbody>
         </table>
-
-
     </form>
 </div>
 <div class="container">
     <div class="navbar-right" style="padding-right: 17px">
+        <button class="btn" type="button" onclick="findByPage(1)">首页</button>
+        <button class="btn" type="button" onclick="findByPage(${pageInfo.prePage})">上一页</button>
+        <span>当前页面：${pageInfo.pageNum}/${pageInfo.pages}</span>
+        <button class="btn" type="button" onclick="findByPage(${pageInfo.nextPage})">下一页</button>
+        <button class="btn" type="button" onclick="findByPage(${pageInfo.pages})">尾页</button>
     </div>
 </div>
-
-
+<script>
+    function findByPage(pageNum) {
+        $('#pageNum').val(pageNum);
+        $('#form-find').submit();
+    }
+</script>
 </body>
 </html>

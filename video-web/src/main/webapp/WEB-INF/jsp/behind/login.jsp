@@ -39,7 +39,7 @@
     </script>
 </head>
 <body>
-<form>
+<form action="${pageContext.request.contextPath}/admin/login" method="post">
     <div style="margin-top: 10%;">
 
         <img src="${pageContext.request.contextPath}/images/logo.png" class="img-responsive center-block" style="width: 20%" alt="Responsive image">
@@ -85,7 +85,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 &nbsp;&nbsp;&nbsp;&nbsp;<button id="loginBtn" type="submit" class="btn btn-success center-block"
-                                                style="width:80%;" onclick="return validateLogin()"> 登 录
+                                                style="width:80%;"> 登 录
             </button>
             </div>
             <div class="col-md-4"></div>

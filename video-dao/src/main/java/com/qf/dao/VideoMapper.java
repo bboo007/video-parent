@@ -4,6 +4,9 @@ import com.qf.pojo.Course;
 import com.qf.pojo.Video;
 import com.qf.pojo.VideoExample;
 import java.util.List;
+import java.util.Map;
+
+import com.qf.utils.VideoQueryVo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -40,4 +43,6 @@ public interface VideoMapper {
     Video findById(Integer videoId);
 
     List<Course> findAll(Integer subjectId);
+
+    List<Map> findByPage(VideoQueryVo videoQueryVo);
 }
